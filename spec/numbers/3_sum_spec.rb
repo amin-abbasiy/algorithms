@@ -12,4 +12,26 @@ RSpec.describe "3 sum numbers algorithm" do
       expect(three_sum_zero(numbers)).to eq(3)
     end
   end
+
+  context "fail cases" do
+    let(:numbers) { [10, -10] }
+    let(:number) { 10 }
+
+    it "invalid number of input" do
+      expect(three_sum_zero(numbers)).to raise_error(ArgumentError)
+    end
+
+    it "invalid number of input message" do
+      expect(three_sum_zero(numbers)).to raise_error.with_message(/please pass at least 3 number/)
+    end
+
+    it "input must be array" do
+      expect(three_sum_zero(number)).to raise_error(DataTypeError)
+    end
+
+    it "input must be array with message" do
+      expect(three_sum_zero(number)).to raise_error.with_message(/input must be array/)
+    end
+
+  end
 end
